@@ -22,7 +22,9 @@ class HttpLogger
     public function handle(Request $request, Closure $next)
     {
         if ($this->logProfile->shouldLogRequest($request)) {
-            $this->logWriter->logRequest($request);
+            $startTime = microtime(true);
+            $response = $next($request);
+            $this->logWriter->logRequest($request, $response, $startTime);
         }
 
         return $next($request);
