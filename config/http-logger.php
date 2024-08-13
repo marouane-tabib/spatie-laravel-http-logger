@@ -20,11 +20,6 @@ return [
     'log_writer' => \Spatie\HttpLogger\DefaultLogWriter::class,
 
     /*
-     * The log channel used to write the request.
-     */
-    'log_channel' => env('LOG_CHANNEL', 'stack'),
-
-    /*
      * The log level used to log the request.
      */
     'log_level' => 'info',
@@ -41,4 +36,6 @@ return [
      * List of headers that will be sanitized. For example Authorization, Cookie, Set-Cookie...
      */
     'sanitize_headers' => [],
+    
+    'meta_data' => []
 ];
