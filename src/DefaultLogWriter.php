@@ -70,13 +70,7 @@ class DefaultLogWriter implements LogWriter
                 'response_headers' => $response->headers->all(),
                 'response_time' => $responseTime,
             ],
-            'version' => [
-                'release_version' => config('http-logger.release_version'), // String
-                'commit_hash' => config('http-logger.commit_hash'),         // String
-                'commit_author' => config('http-logger.commit_author'),     // String
-                'commit_date' => config('http-logger.commit_date'),         // String
-                'author' => config('http-logger.author'), 
-            ]
+            'meta_data' => config('http-logger.meta_data')
         ];
     }
 
