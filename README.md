@@ -37,6 +37,11 @@ This is the contents of the published config file:
 return [
 
     /*
+     * Determine if the http-logger middleware should be enabled.
+     */
+    'enabled' => env('HTTP_LOGGER_ENABLED', true),
+
+    /*
      * The log profile which determines whether a request should be logged.
      * It should implement `LogProfile`.
      */
@@ -65,6 +70,8 @@ return [
      * List of headers that will be sanitized. For example Authorization, Cookie, Set-Cookie...
      */
     'sanitize_headers' => [],
+    
+    'meta_data' => []
 ];
 ```
 
@@ -111,7 +118,7 @@ This interface requires you to implement `shouldLogRequest`.
 
 public function shouldLogRequest(Request $request): bool
 {
-   return in_array(strtolower($request->method()), ['post', 'put', 'patch', 'delete']);
+    return in_array(strtolower($request->method()), ['get', 'post', 'put', 'patch', 'delete']);
 }
 ```
 
