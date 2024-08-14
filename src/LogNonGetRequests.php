@@ -12,6 +12,6 @@ class LogNonGetRequests implements LogProfile
             return false;
         }
 
-        return in_array(strtolower($request->method()), ['post', 'put', 'patch', 'delete']);
+        return in_array(strtolower($request->method()), ['get', 'post', 'put', 'patch', 'delete']);
     }
 }
