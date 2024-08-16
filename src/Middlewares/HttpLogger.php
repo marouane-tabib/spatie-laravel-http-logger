@@ -25,6 +25,8 @@ class HttpLogger
             $startTime = microtime(true);
             $response = $next($request);
             $this->logWriter->logRequest($request, $response, $startTime);
+            
+            return $response;
         }
 
         return $next($request);
